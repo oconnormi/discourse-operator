@@ -1,0 +1,6 @@
+domain: discourse.oconnormi.io
+layout:
+- go.kubebuilder.io/v3
+projectName: discourse-operator
+repo: github.com/oconnormi/discourse-operator
+version: "3"
