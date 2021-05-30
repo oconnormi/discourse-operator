@@ -1,0 +1,7 @@
+apiVersion: discourse.oconnormi.io/v1alpha1
+kind: Discourse
+metadata:
+  name: discourse-sample
+spec:
+  # Add fields here
+  foo: bar

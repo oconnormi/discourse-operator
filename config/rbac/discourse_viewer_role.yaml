@@ -1,0 +1,20 @@
+# permissions for end users to view discourses.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: discourse-viewer-role
+rules:
+- apiGroups:
+  - discourse.oconnormi.io
+  resources:
+  - discourses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - discourse.oconnormi.io
+  resources:
+  - discourses/status
+  verbs:
+  - get

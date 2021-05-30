@@ -9,7 +9,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends curl zsh
+    && apt-get -y install --no-install-recommends curl zsh openjdk-11-jre
 
 # Customize shell
 RUN chsh -s /bin/zsh
@@ -20,6 +20,7 @@ RUN rm -rf ~/.zshrc && ~/.dotfiles/scripts/bootstrap
 RUN curl -L -o kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)
 RUN chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 RUN echo 'eval "$(kubebuilder completion zsh)"' >> ~/.zshrc
+RUN sed -i '/PATH=\/usr\/local/d' ~/.zshrc
 
 # [Optional] Uncomment the next line to use go get to install anything else you need
 # RUN go get -x <your-dependency-or-tool>
